@@ -1,0 +1,185 @@
+Question 1: Calculator App
+Create a Python program that acts as a simple calculator. 
+It should take two numbers and an operator as input and perform the corresponding operation.
+
+
+def Calculator(m,n,operator):
+    if operator == "add":
+        add = m + n
+        return add
+    elif operator =="sub":
+        sub = m - n
+        return sub
+    elif operator == "div":
+        rem = m%n
+        quo = m//n
+        return "remainder is ", rem, "and quotient is", quo
+    elif operator == "multiply" or operator == "product":
+        product = m*n
+        return product 
+    elif operator == "exponent":
+        result = m**n
+        return result 
+    else:
+        return None
+
+
+
+Question 2: File Manipulation 
+Write a Python script to read a text file, count the occurrences of each word, and display the result.
+
+with open("hello.txt", "r") as file:
+    text = file.readlines()
+    for line in text:
+        print(line)
+        words = line.split()
+        iterable = dict()
+        for word in words:
+            if word in iterable:
+                iterable[word] += 1
+            else:
+                iterable[word] = 1
+        print(iterable)
+
+
+Question 3: String Formatting
+Write a Python function that takes a sentence as input and returns the number of words in it
+
+def count_words(string):
+    words = string.split()
+    count = len(words)
+    print(count)
+
+
+Question 4: User Authentication
+Develop a Python program that simulates user authentication. 
+Ask the user to enter a username and password, and validate them against predefined values.
+
+
+import getpass
+
+Name = input("Enter your name :")
+Email = input("Enter your email :")
+Username = input("Enter your Username :")
+Password = getpass.getpass("Enter you password :")
+print("Thank you for registering")
+
+print("Enter your user details", end="\n")
+User = input("Enter you username :")
+passwd = getpass.getpass("Enter your id password :")
+
+while True:
+    if User == Username and passwd==Password:
+        print("\t\t\tVerified")    
+        print("You have successfully authenticated")
+        print({("Name:", Name), ("Email:", Email), ("Username:", Username), ("Password:", Password)})
+        break
+    
+    else:
+        print("failed Authentication")
+        User = input("RE-enter you username :")
+        passwd = getpass.getpass("Re-renter your id password :")
+
+
+Question 5: Date Difference
+Write a Python function that calculates the difference in days between two given dates
+
+
+import datetime 
+from datetime import datetime
+
+date1 = input("Enter the initial date in (year, month, date) format :")
+date2 = input("Enter the last date in (year, month, date) format :")
+
+first = [int(x) for x in date1.split(",")]
+second = [int(y) for y in date2.split(",")]
+
+first_date = datetime(first[0], first[1], second[2])
+second_date = datetime(second[0], second[1], second[2])
+
+difference = second_date - first_date
+print(difference)
+
+
+
+Question:6 Reverse String 
+Write a Python function that takes a sentence as input and returns the sentence with reversed words
+
+
+def Reverse_String(string):
+    divider = string.split()
+    reverse = divider[::-1]
+    result = " ".join(reverse)
+    return result
+
+
+Question 7: Random Password Generator
+Write a Python function that generates a random password of a specified length, combining letters, numbers, and symbols
+
+import string
+import random
+def random_password():
+    length = 7
+    symbols = "!@#$%&*?"
+    password = "".join(random.choice(string.ascii_uppercase + string.ascii_lowercase 
+                                    + string.digits + symbols) for n in range(length))
+    return "Your password for this session is : " + password
+
+
+Question 8: Email Validator
+Develop a Python function that validates whether a given string is a valid email address or not
+
+
+from email_validator import validate_email, EmailNotValidError
+
+def email_validator(email):
+    try:
+        email_info = validate_email(email) 
+        email = email_info.normalized 
+        print("True, A valid email")
+    
+    except EmailNotValidError as e:
+        print(str(e))
+
+email_validator("training@linuxworldindia.org")
+email_validator("harsh123.gmail.com")
+
+
+Question 9: Temperature Converter
+Write a Python program that converts temperatures between Celsius and Fahrenheit based on user input
+
+
+def Temperature_Converter(temp, convert_to):
+    if convert_to == "celsius" or convert_to == "C":
+        celsius = ((temp - 32) * 5)/9
+        return str(celsius) + " °C"
+    elif convert_to == "fahrenheit" or convert_to == "F":
+        fahrenheit = ((temp*9)/5) + 32
+        return str(fahrenheit) + " °f"
+    else:
+        return "Enter Valid Input"
+
+
+Question 10: Social Media Post Analyzer
+Create a Python script that analyzes a given social media post. 
+It could count the number of words, find hashtags, or determine the sentiment.
+
+
+from textblob import TextBlob
+import re
+
+def analyze_social_media_post(post):
+    word_count = len(re.findall(r'\b\w+\b', post))
+
+    hashtags = re.findall(r'\#\w+', post)
+    analysis = TextBlob(post)
+    sentiment_score = analysis.sentiment.polarity
+
+    return {
+        'word_count': word_count,
+        'hashtags': hashtags,
+        'sentiment_score': sentiment_score
+    }
+
+social_media_post_positive = "Excited to share my latest Python project! 🎉 #CodingJoy #PythonPower"
+analyze_social_media_post(social_media_post_positive)
