@@ -1,0 +1,62 @@
+Question 1: Reversing a String
+Write a Python function to reverse a given string.
+The string is “I am learning Python”
+Create a function for reversing the string
+The name of the function should be “reverse_string”
+
+def reverse_string(string):
+    result = string[::-1]
+    return result
+
+
+Question 2: Finding Prime Numbers
+Write a Python function to generate a list of prime numbers up to a given number n.
+Create a function named generate_prime which will take an input of numbers
+Find prime no till 20
+
+def generate_prime(n):
+    prime = []
+    for i in range(2, n+1):
+        for j in range(2, int(i**0.5)+1):
+            if i%j == 0:
+                break
+            else:
+                prime.append(i)
+    return prime                
+       
+
+Question 3: Calculating Factorial
+Write a Python function to calculate the factorial of a given non-negative integer.
+If someone tries to find the factorial of 0 & 1 it should return 1 to the user The function name should be “factorial” taking an input parameter “n”
+
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    elif n < 0 :
+        return "Sorry factorial does not exist"
+    else:
+        return n * factorial(n-1)
+
+
+Question 4: Counting Words in a Sentence
+Write a Python function to count the number of words in a given sentence. 
+It should count the words in a sentenceThe function name is count_wordstaking
+
+
+def count_words(string):
+     return len(string.split())
+
+
+Question 5: Finding Maximum Element
+Write a Python function to find the maximum element in a list.
+List of no is [ 10 , 5 , 20 , 3, 2, 8, 20 , 2]
+If the list is empty it should return NoneCreate function with name find_max_element
+
+
+def find_max_element(n):
+    if n:
+        result = max(n)
+        return result
+    else:
+        return None
+
